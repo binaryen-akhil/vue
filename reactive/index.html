@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My First Web Page</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="welcome">
+            <h1 >{{message}}</h1>
+            <h2>{{greet()}}</h2>
+            <h2>{{generateRandomNumber()}}</h2>
+            <p>This is a simple web page created as an example.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+
+                <h2>User Information:</h2>
+                <p>First Name: {{ name.firstName }}</p>
+                <p>Last Name: {{ name.lastName }}</p>
+                <p>Age: {{ name.age }}</p>
+                <p>Occupation: {{ name.occupation }}</p>
+                {{ updateName() }}
+        </div>
+        
+    </body>
+    <script>
+        const { createApp,ref ,reactive} = Vue;
+        createApp({
+            setup() {
+                const randomNumber=ref();
+                function generateRandomNumber(){
+                    randomNumber.value=Math.floor(Math.random()*100)+1;
+                    return randomNumber;
+                }
+                function greet() {
+                    return "Hello, Rahul!".toUpperCase();
+                }
+
+                const name = reactive(
+                    {
+                        firstName: 'Akhil',
+                        lastName: 'Kumar',
+                        age:26,
+                        occupation:'Software Engineer'
+
+                    }
+                )
+
+                function updateName() {
+                    setTimeout(() => {
+                        name.firstName = 'Akhil'.toUpperCase();
+                        name.lastName = 'Kumar'.toUpperCase();
+                        name.age = 26;
+                        name.occupation = 'Software Engineer'.toUpperCase();
+                    }, 2000);
+                    
+                }
+                return {
+                    message: 'Hello, Akhil!',
+                    greet,
+                    generateRandomNumber,
+                    name,
+                    updateName
+                }
+            }
+        }).mount('#welcome');
+    </script>
+</html>
