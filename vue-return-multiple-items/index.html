@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My First Web Page</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="welcome">
+            <h1 >{{message}}</h1>
+            <h2>{{greet()}}</h2>
+        <p>This is a simple web page created as an example.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        </div>
+        
+    </body>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            setup() {
+
+                function greet() {
+                    return "Hello, Rahul!";
+                }
+                return {
+                    message: 'Hello, Akhil!',
+                    greet
+                }
+            }
+        }).mount('#welcome');
+    </script>
+</html>
