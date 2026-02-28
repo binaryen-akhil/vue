@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My First Web Page</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="welcome">
+            <p v-for="n in numbers">{{n}}</p>
+            <li v-for="(personJsonArray,index) in personJsonArray" :key="personJsonArray.name">{{personJsonArray.name}} - {{personJsonArray.age}}
+                <input type="text" >
+            </li>
+            {{shufflePersonAge()}}
+        </div>
+        
+    </body>
+    <script>
+        const { createApp,ref,reactive } = Vue;
+        createApp({
+            setup() {
+                const numbers =[1,2,3,4,5];
+                const personJsonArray = reactive([
+                    {name:'A',age:18},
+                    {name:'B',age:19},
+                    {name:'C',age:20}
+                ])
+                function shufflePersonAge() {
+                    setInterval(() => {
+                       personJsonArray.name='X';
+                    }, 5000);
+                }
+                return {
+                    numbers,
+                    personJsonArray,
+                    shufflePersonAge
+                }
+            }
+        }).mount('#welcome');
+    </script>
+</html>
