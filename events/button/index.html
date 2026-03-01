@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <button v-on:click="clickHandler($event)">Click me</button>
+
+        </div>
+    </body>
+    <script>
+    const { createApp } = Vue;
+    createApp({
+        
+        setup() {
+            function clickHandler(event) {
+                alert(event);
+                console.log(event);
+                
+            }
+            return{
+                clickHandler
+            }
+        }
+        
+    }).mount('#app');
+    </script>
+    <style>
+
+    </style>
+</html>

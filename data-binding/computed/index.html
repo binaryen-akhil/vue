@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    </head>
+
+    <body>
+
+        <div id="app">
+
+            <button v-on:click="count++">Click me</button>
+            <h2>{{message}}</h2>
+            <input type="text" v-model="name">
+            <p>Message is: {{ count }}</p>
+
+        </div>
+
+    </body>
+    <script>
+    const { createApp, ref, computed } = Vue;
+    createApp({
+        
+        setup() {
+            let count = ref(0);
+            let name = ref();
+            let message = computed((previous) => {
+                //console.log('Previous value: ', previous);
+                    if(previous=='Hello Vue') {
+                        console.log("Previous value is Hello Vue");
+                        
+                    }
+                return `Hello ${name.value}`;
+            });
+            
+            
+            return{
+                message,count,name
+            }
+
+        }
+        
+        
+    }).mount('#app');
+    </script>
+    <style>
+
+    </style>
