@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    </head>
+    <body>
+        <div id="app">
+            <h1 
+            v-bind:style="[divider,backgroundColor('yellow')]"
+            >{{ message }}</h1>
+    </body>
+    <script>
+    const { createApp } = Vue;
+    const divider={
+            color: 'red',
+            fontSize: '24px',
+            fontWeight: 'bold'
+        }
+    function backgroundColor(color) {
+        return {
+            backgroundColor: color
+        }
+    }
+    createApp({
+        
+        setup() {
+            const message = 'class style 2';
+            return {
+                message,
+                divider,
+                backgroundColor
+            }
+        }
+    }).mount('#app');
+    </script>
+<style>
+    .red {
+        border: 1px solid red;
+    }
+    .blue {
+        color: blue;
+    }
+    .h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+</html>
