@@ -16,6 +16,8 @@ import { ref } from 'vue';
     phone: Number, required: true,
     ownername: String
   });
+  console.log(props);
+  
   const email = ref("akhil@gmail.com");
   </script>
   
