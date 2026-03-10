@@ -27,12 +27,12 @@
             let count = ref(0);
             let name = ref();
             let message = computed((previous) => {
-                //console.log('Previous value: ', previous);
-                    if(previous=='Hello Vue') {
+               //console.log('Previous value: ', previous);
+                    if(previous=="Hello 1Vue") {
                         console.log("Previous value is Hello Vue");
                         
                     }
-                return `Hello ${name.value}`;
+                return `${name.value}`;
             });
             
             
