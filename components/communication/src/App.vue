@@ -4,7 +4,7 @@
     <input type="text" v-model="myname" placeholder="Enter your name" />
     <div class="row" >
       <div class="col" v-for="contact in contacts" :key="contact.name">
-        <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername"/>
+        <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"/>
 
       </div>
 
@@ -21,19 +21,19 @@ const contacts=reactive([
   name:"Akhil1",
   phone:9849465498,
   ownername:myname,
-  isFavoraite:true
+  isFavourite:true
 },
 {
   name:"Akhil2",
   phone:9849465498,
   ownername:myname,
-  isFavoraite:true
+  isFavourite:true
 },
 {
   name:"Akhil3",
   phone:9849465498,
   ownername:myname,
-  isFavoraite:true
+  isFavourite:true
 }
 ]
 )

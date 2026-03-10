@@ -6,6 +6,9 @@
         <p>Email: {{ email }}</p>
         <p>Owner Name: {{ ownername }}</p>
     </div>
+    <div>
+        <button :class="[isFavourite? 'btn btn-warning':'btn btn-danger']">{{ isFavourite?'yes':'no' }}</button>
+    </div>
   </template>
   
   <script setup>
@@ -14,7 +17,8 @@ import { ref } from 'vue';
   const props = defineProps({
     name: String, required: true,
     phone: Number, required: true,
-    ownername: String
+    ownername: String,
+    isFavourite: Boolean
   });
   console.log(props);
   
