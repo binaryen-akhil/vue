@@ -4,7 +4,8 @@
     <input type="text" v-model="myname" placeholder="Enter your name" />
     <div class="row" >
       <div class="col" v-for="contact in contacts" :key="contact.name">
-        <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"/>
+        <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"
+        @update-isFavourite="contact.isFavourite=!contact.isFavourite " />
 
       </div>
 

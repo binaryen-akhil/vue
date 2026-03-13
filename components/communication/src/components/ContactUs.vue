@@ -5,7 +5,7 @@
         <p>Phone: {{ props.phone }}</p>
         <p>Owner Name: {{ props.ownername }}</p>
     </div>
-    <button :class="[props.isFavourite ? 'btn btn-success' : 'btn btn-danger']">
+    <button @click="toggleFavorite" :class="[props.isFavourite ? 'btn btn-success' : 'btn btn-danger']">
     {{ props.isFavourite ? 'Favourite' : 'Not Favourite' }}
   </button>
   </template>
@@ -13,6 +13,9 @@
   <script setup>
 import { ref } from 'vue';
 import { defineProps } from 'vue';
+import  {defineEmits } from 'vue';
+
+const emit = defineEmits(['update:isFavourite']);
 
 const props = defineProps({
   name: {
@@ -33,5 +36,8 @@ const props = defineProps({
   console.log(props);
   
   const email = ref("akhil@gmail.com");
+  function toggleFavorite() {
+    emit('update-isFavourite');
+  }
   </script>
   
