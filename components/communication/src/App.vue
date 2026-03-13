@@ -5,7 +5,7 @@
     <div class="row" >
       <div class="col" v-for="contact in contacts" :key="contact.name">
         <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"
-        @update-isFavourite="contact.isFavourite=!contact.isFavourite " />
+        @update-isFavourite="contact.isFavourite=onUpdatedFromChild($event)" />
 
       </div>
 
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import {  reactive, ref } from "vue";
 import ContactUs from "./components/ContactUs.vue"
 const myname = ref("Akhil")
 const contacts=reactive([
@@ -38,4 +38,7 @@ const contacts=reactive([
 }
 ]
 )
+function onUpdatedFromChild(f){
+  return !f;
+}
 </script>

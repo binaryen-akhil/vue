@@ -37,7 +37,7 @@ const props = defineProps({
   
   const email = ref("akhil@gmail.com");
   function toggleFavorite() {
-    emit('update-isFavourite');
+    emit('update-isFavourite',props.isFavourite);
   }
   </script>
   
