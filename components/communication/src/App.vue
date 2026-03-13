@@ -33,7 +33,7 @@ const contacts=reactive([
   name:"Akhil3",
   phone:9849465498,
   ownername:myname,
-  isFavourite:true
+  isFavourite:false
 }
 ]
 )

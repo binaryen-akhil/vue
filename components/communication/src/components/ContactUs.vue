@@ -1,25 +1,35 @@
 <template>
     <div>
         <h2>Contact Us</h2>
-        <p>Name: {{ name }}</p>
-        <p>Phone: {{ phone }}</p>
-        <p>Email: {{ email }}</p>
-        <p>Owner Name: {{ ownername }}</p>
+        <p>Name: {{ props.name }}</p>
+        <p>Phone: {{ props.phone }}</p>
+        <p>Owner Name: {{ props.ownername }}</p>
     </div>
-    <div>
-        <button :class="[isFavourite? 'btn btn-warning':'btn btn-danger']">{{ isFavourite?'yes':'no' }}</button>
-    </div>
+    <button :class="[props.isFavourite ? 'btn btn-success' : 'btn btn-danger']">
+    {{ props.isFavourite ? 'Favourite' : 'Not Favourite' }}
+  </button>
   </template>
   
   <script setup>
 import { ref } from 'vue';
+import { defineProps } from 'vue';
 
-  const props = defineProps({
-    name: String, required: true,
-    phone: Number, required: true,
-    ownername: String,
-    isFavourite: Boolean
-  });
+const props = defineProps({
+  name: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: Number,
+    required: true
+  },
+  ownername: {
+    type: String
+  },
+  isFavourite: {
+    type: Boolean
+  }
+});
   console.log(props);
   
   const email = ref("akhil@gmail.com");
