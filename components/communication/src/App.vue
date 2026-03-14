@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <h1>Communication App</h1>
+    <div p-class="mb-3">
+      <AddContact />
+    </div>
+
     <input type="text" v-model="myname" placeholder="Enter your name" />
-    <div class="row" >
-      <div class="col" v-for="contact in contacts" :key="contact.name">
+    <div class="col" >
+      <div class="row" v-for="contact in contacts" :key="contact.name">
         <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"
         @update-isFavourite="contact.isFavourite=onUpdatedFromChild($event)" />
 
@@ -16,6 +20,7 @@
 <script setup>
 import {  reactive, ref } from "vue";
 import ContactUs from "./components/ContactUs.vue"
+import AddContact from "./components/AddContact.vue";
 const myname = ref("Akhil")
 const contacts=reactive([
 {
