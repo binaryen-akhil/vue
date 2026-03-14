@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="col-6">
+      <div>
         <h2>Contact Us</h2>
         <p>Name: {{ props.name }}</p>
         <p>Phone: {{ props.phone }}</p>
@@ -8,13 +9,17 @@
     <button @click="toggleFavorite" :class="[props.isFavourite ? 'btn btn-success' : 'btn btn-danger']">
     {{ props.isFavourite ? 'Favourite' : 'Not Favourite' }}
   </button>
+    </div>
+    <div class="col-6">
+      <LuckyNumber :maxNumber="100"/>
+    </div>
   </template>
   
   <script setup>
 import { ref } from 'vue';
 import { defineProps } from 'vue';
 import  {defineEmits } from 'vue';
-
+import LuckyNumber from "./LuckyNumber.vue"
 const emit = defineEmits(['update-isFavourite']);
 
 const props = defineProps({

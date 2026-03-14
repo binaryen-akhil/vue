@@ -14,11 +14,12 @@
       </div>
 
     </div>
+    
   </div>
 </template>
 
 <script setup>
-import {  reactive, ref } from "vue";
+import {  reactive, ref, provide } from "vue";
 import ContactUs from "./components/ContactUs.vue"
 import AddContact from "./components/AddContact.vue";
 const myname = ref("Akhil")
@@ -43,6 +44,7 @@ const contacts=reactive([
 }
 ]
 )
+provide("myname",myname);
 function onUpdatedFromChild(f){
   return !f;
 }
