@@ -1,10 +1,13 @@
 
 
 <template>
-<button @click="changeVersion"> version 1</button>
-<button @click="changeVersion"> version 2</button>
-
-<component :is="luckynumber" />
+<div class="d-flex justify-content-center ">
+    <button @click="changeVersion" class="btn btn-primary m-2"> version 1</button>
+<button @click="changeVersion" class="btn btn-primary m-2"> version 2</button>
+</div>
+<keep-alive>
+    <component :is="luckynumber" />
+</keep-alive>
 </template>
 
 <script setup>
