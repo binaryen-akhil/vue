@@ -2,13 +2,13 @@
   <div id="app">
     <h1>Communication App</h1>
     <div p-class="mb-3">
-      <AddContact />
+      <AddContact @add-contact="addContact($event)"/>
     </div>
 
     <input type="text" v-model="myname" placeholder="Enter your name" />
     <div class="col" >
       <div class="row" v-for="contact in contacts" :key="contact.name">
-        <ContactUs :name="contact.value" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"
+        <ContactUs :name="contact.name" :phone="contact.phone" :ownername="contact.ownername" :isFavourite="contact.isFavourite"
         @update-isFavourite="contact.isFavourite=onUpdatedFromChild($event)" />
 
       </div>
@@ -45,5 +45,13 @@ const contacts=reactive([
 )
 function onUpdatedFromChild(f){
   return !f;
+}
+function addContact(newContact) {
+  contacts.push({
+    name: newContact.name,
+    phone: newContact.phone,
+    ownername: myname.value,
+    isFavourite: false
+  });
 }
 </script>

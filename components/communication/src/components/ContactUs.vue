@@ -15,7 +15,7 @@ import { ref } from 'vue';
 import { defineProps } from 'vue';
 import  {defineEmits } from 'vue';
 
-const emit = defineEmits(['update:isFavourite']);
+const emit = defineEmits(['update-isFavourite']);
 
 const props = defineProps({
   name: {

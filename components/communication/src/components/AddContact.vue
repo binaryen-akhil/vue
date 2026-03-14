@@ -25,8 +25,15 @@ import { reactive } from 'vue';
     phone: '',
     ownerName:''
     });
+const emit = defineEmits(['add-contact']);
 function addContact() {
-    console.log(newContact);
+    // Emit the new contact data to the parent component
+    emit('add-contact', { ...newContact });
+    
+    // Clear the form fields
+    newContact.name = '';
+    newContact.phone = '';
+    newContact.ownerName = '';
     
 }
 
